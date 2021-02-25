@@ -1,0 +1,153 @@
+#pragma once
+#include "triangulo.h"
+#include <iostream> 
+#include "msclr\marshal_cppstd.h" 
+
+
+namespace triangulo1 {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+	using namespace std;
+	using namespace msclr;
+
+	/// <summary>
+	/// Summary for Form1
+	/// </summary>
+	public ref class Form1 : public System::Windows::Forms::Form
+	{
+	public:
+		Form1(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~Form1()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+	private: System::Windows::Forms::Button^  btnCalcular;
+	protected: 
+
+	protected: 
+
+	protected: 
+	private: System::Windows::Forms::Label^  lblLado;
+	private: System::Windows::Forms::Label^  lblArea;
+	private: System::Windows::Forms::TextBox^  txtLado;
+	private: System::Windows::Forms::TextBox^  txtArea;
+
+
+
+
+	private:
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		System::ComponentModel::Container ^components;
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->btnCalcular = (gcnew System::Windows::Forms::Button());
+			this->lblLado = (gcnew System::Windows::Forms::Label());
+			this->lblArea = (gcnew System::Windows::Forms::Label());
+			this->txtLado = (gcnew System::Windows::Forms::TextBox());
+			this->txtArea = (gcnew System::Windows::Forms::TextBox());
+			this->SuspendLayout();
+			// 
+			// btnCalcular
+			// 
+			this->btnCalcular->Location = System::Drawing::Point(69, 160);
+			this->btnCalcular->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCalcular->Name = L"btnCalcular";
+			this->btnCalcular->Size = System::Drawing::Size(56, 19);
+			this->btnCalcular->TabIndex = 0;
+			this->btnCalcular->Text = L"Calcular";
+			this->btnCalcular->UseVisualStyleBackColor = true;
+			this->btnCalcular->Click += gcnew System::EventHandler(this, &Form1::btnCalcular_Click);
+			// 
+			// lblLado
+			// 
+			this->lblLado->AutoSize = true;
+			this->lblLado->Location = System::Drawing::Point(36, 50);
+			this->lblLado->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblLado->Name = L"lblLado";
+			this->lblLado->Size = System::Drawing::Size(31, 13);
+			this->lblLado->TabIndex = 1;
+			this->lblLado->Text = L"Lado";
+			// 
+			// lblArea
+			// 
+			this->lblArea->AutoSize = true;
+			this->lblArea->Location = System::Drawing::Point(38, 102);
+			this->lblArea->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lblArea->Name = L"lblArea";
+			this->lblArea->Size = System::Drawing::Size(29, 13);
+			this->lblArea->TabIndex = 2;
+			this->lblArea->Text = L"Area";
+			this->lblArea->Click += gcnew System::EventHandler(this, &Form1::label2_Click);
+			// 
+			// txtLado
+			// 
+			this->txtLado->Location = System::Drawing::Point(112, 43);
+			this->txtLado->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtLado->Name = L"txtLado";
+			this->txtLado->Size = System::Drawing::Size(76, 20);
+			this->txtLado->TabIndex = 3;
+			// 
+			// txtArea
+			// 
+			this->txtArea->Location = System::Drawing::Point(114, 105);
+			this->txtArea->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtArea->Name = L"txtArea";
+			this->txtArea->Size = System::Drawing::Size(76, 20);
+			this->txtArea->TabIndex = 4;
+			// 
+			// Form1
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(212, 206);
+			this->Controls->Add(this->txtArea);
+			this->Controls->Add(this->txtLado);
+			this->Controls->Add(this->lblArea);
+			this->Controls->Add(this->lblLado);
+			this->Controls->Add(this->btnCalcular);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Name = L"Form1";
+			this->Text = L"Form1";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
+		}
+#pragma endregion
+	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 }
+private: System::Void btnCalcular_Click(System::Object^  sender, System::EventArgs^  e) {
+			 triangulo1 triangulito; //Creando el objeto cuadradito
+		 triangulito.Set_lado(System::Convert::ToInt32(txtLado->Text));
+		 int areafin;
+		 areafin=triangulito.Calcular();
+		 txtArea->Text=System::Convert::ToString(areafin);
+		 }
+};
+}
